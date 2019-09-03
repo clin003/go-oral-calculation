@@ -16,5 +16,5 @@ func (a *add) Calc(f1 gen.IFactor, f2 gen.IFactor) int {
 }
 
 func (a *add) ToString() string {
-	return "+"
+	return " + "
 }

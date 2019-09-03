@@ -2,7 +2,7 @@ package gen
 
 import (
 	"container/list"
-	"strconv"
+	"fmt"
 )
 
 func NewFactor(value int) IFactor {
@@ -28,7 +28,7 @@ func (f *Factor) Result() int {
 }
 
 func (f *Factor) ToString() string {
-	format := strconv.Itoa(f.value)
+	format := fmt.Sprintf("%d", f.value)
 	for el := f.stack.Front(); el != nil; el = el.Next() {
 		format += el.Value.(IFormator).ToString()
 	}

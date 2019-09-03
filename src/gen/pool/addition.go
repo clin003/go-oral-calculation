@@ -18,8 +18,8 @@ type addition struct {
 
 func (a *addition) init(min int, max int) {
 	a.items = make([]gen.IFactor, 0)
-	for i := min; i < max; i++ {
-		for j := min; j < (max - i); j++ {
+	for i := min; i <= max; i++ {
+		for j := min; j <= (max - i); j++ {
 			a.items = append(a.items, gen.NewFactor(i).Append(gen.NewFactor(j), operator.NewAdd()))
 		}
 	}

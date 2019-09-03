@@ -16,5 +16,5 @@ func (s *subtract) Calc(a gen.IFactor, b gen.IFactor) int {
 }
 
 func (s *subtract) ToString() string {
-	return "-"
+	return " - "
 }
