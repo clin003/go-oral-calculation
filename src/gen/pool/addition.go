@@ -2,7 +2,7 @@ package pool
 
 import (
 	"gen"
-	"gen/operator"
+	"gen/factor"
 )
 
 func NewAddition(min int, max int) gen.IPool {
@@ -20,7 +20,7 @@ func (a *addition) init(min int, max int) {
 	a.items = make([]gen.IFactor, 0)
 	for i := min; i <= max; i++ {
 		for j := min; j <= (max - i); j++ {
-			a.items = append(a.items, gen.NewFactor(i).Append(gen.NewFactor(j), operator.NewAdd()))
+			a.items = append(a.items, factor.NewAdd(factor.NewInteger(i), factor.NewInteger(j)))
 		}
 	}
 }
