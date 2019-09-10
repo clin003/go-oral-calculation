@@ -1,5 +1,7 @@
 package gen
 
+// IExporter interface.
 type IExporter interface {
-	Export(cols int)
+	// Export oral calculation data with FormatType and how many columns.
+	Export(t FormatType, cols int)
 }

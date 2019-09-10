@@ -1,7 +1,10 @@
 package gen
 
+// IFactor interface.
 type IFactor interface {
-	// Append(factor IFactor, operator IOperator) IFactor
+	// Result returns the factor final result.
 	Result() int
-	ToString() string
+
+	// Format the factor fomula with FormatType.
+	Format(t FormatType) string
 }

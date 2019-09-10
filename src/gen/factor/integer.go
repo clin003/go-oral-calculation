@@ -1,8 +1,8 @@
 package factor
 
 import (
-	"fmt"
 	"gen"
+	"strconv"
 )
 
 func NewInteger(v int) gen.IFactor {
@@ -17,6 +17,6 @@ func (f *integer) Result() int {
 	return f.v
 }
 
-func (f *integer) ToString() string {
-	return fmt.Sprintf("%d", f.v)
+func (f *integer) Format(t gen.FormatType) string {
+	return strconv.Itoa(f.v)
 }

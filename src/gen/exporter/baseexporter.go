@@ -8,5 +8,5 @@ type baseexporter struct {
 	items []gen.IFactor
 }
 
-func (e *baseexporter) Export(cols int) {
+func (e *baseexporter) Export(t gen.FormatType, cols int) {
 }
