@@ -18,15 +18,31 @@ func (f *sub) Result() int {
 	return f.a.Result() - f.b.Result()
 }
 
-func (f *sub) Format(t gen.FormatType) string {
-	switch t = gen.ToFixFormat(t); t {
-	case gen.PH_LEFT:
-		return fmt.Sprintf("(   ) - %2d = %2d", f.b.Result(), f.Result())
-	case gen.PH_RIGHT:
-		return fmt.Sprintf("%2d - (   ) = %2d", f.a.Result(), f.Result())
-	case gen.PH_RESULT:
-		return fmt.Sprintf("%2d - %2d = (   )", f.a.Result(), f.b.Result())
+func (f *sub) Format(t gen.FormatType, withResult bool) string {
+	formula := ""
+
+	if t == gen.PH_RAND {
+		t = gen.RandFormat()
 	}
 
-	return ""
+	if t == gen.PH_LEFT {
+		if Poss(0.5) {
+			formula += fmt.Sprintf("%s - %s", f.a.Format(t, false), f.b.Format(gen.PH_NONE, false))
+		} else {
+			formula += fmt.Sprintf("%s - %s", f.a.Format(gen.PH_NONE, false), f.b.Format(t, false))
+		}
+	} else {
+
+		formula += fmt.Sprintf("%s - %s", f.a.Format(gen.PH_NONE, false), f.b.Format(gen.PH_NONE, false))
+	}
+
+	if withResult {
+		if t == gen.PH_RIGHT {
+			formula += " = (   )"
+		} else {
+			formula += fmt.Sprintf(" = %2d", f.Result())
+		}
+	}
+
+	return formula
 }

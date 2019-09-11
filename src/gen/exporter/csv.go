@@ -26,7 +26,7 @@ func (c *csv) Export(t gen.FormatType, cols int) {
 	defer f.Close()
 
 	for i, it := range c.items {
-		f.WriteString(fmt.Sprintf("[%d] %s,", i+1, it.Format(t)))
+		f.WriteString(fmt.Sprintf("[%2d] %s,", i+1, it.Format(t, true)))
 		if cols <= 1 || (i+1)%cols == 0 {
 			f.WriteString("\n")
 		}
