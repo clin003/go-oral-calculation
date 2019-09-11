@@ -12,14 +12,14 @@ import (
 )
 
 func main() {
-	addition := pool.NewMix(pool.NewAddition(1, 20), pool.NewSubtraction(1, 20))
+	addition := pool.NewMix(pool.NewAddition(2, 20), pool.NewSubtraction(2, 20), pool.NewMultiplication(1, 9), pool.NewDivision(1, 20))
 	result := addition.Rand(100)
 
 	fmt.Printf("--- 共生成[%2d]道题 ---\n", len(result))
 	exp := exporter.NewConsole(result)
-	exp.Export(gen.PH_RAND, 4)
+	exp.Export(gen.PH_RAND, 4, false)
 
 	ext, _ := os.Executable()
 	exp = exporter.NewCsv(result, path.Join(filepath.Dir(ext), fmt.Sprintf("result_%d.csv", time.Now().Unix())))
-	exp.Export(gen.PH_RAND, 4)
+	exp.Export(gen.PH_RAND, 4, false)
 }

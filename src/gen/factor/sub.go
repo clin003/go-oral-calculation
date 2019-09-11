@@ -40,7 +40,7 @@ func (f *sub) Format(t gen.FormatType, withResult bool) string {
 		if t == gen.PH_RIGHT {
 			formula += " ＝ (   )"
 		} else {
-			formula += fmt.Sprintf(" ＝ %2d", f.Result())
+			formula += fmt.Sprintf(" ＝ %d", f.Result())
 		}
 	}
 

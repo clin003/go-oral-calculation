@@ -19,7 +19,7 @@ func (f *integer) Result() int {
 
 func (f *integer) Format(t gen.FormatType, withResult bool) string {
 	if t == gen.PH_NONE {
-		return fmt.Sprintf("%2d", f.v)
+		return fmt.Sprintf("%d", f.v)
 	} else {
 		return "(   )"
 	}

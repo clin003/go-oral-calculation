@@ -5,9 +5,9 @@ import (
 	"gen/factor"
 )
 
-func NewSubtraction(min int, max int) gen.IPool {
+func NewSubtraction(min int, bound int) gen.IPool {
 	s := &subtraction{}
-	s.init(min, max)
+	s.init(min, bound)
 
 	return s
 }
@@ -16,9 +16,9 @@ type subtraction struct {
 	basepool
 }
 
-func (s *subtraction) init(min int, max int) {
+func (s *subtraction) init(min int, bound int) {
 	s.items = make([]gen.IFactor, 0)
-	for i := max; i >= min; i-- {
+	for i := bound; i >= min; i-- {
 		for j := i - 1; j >= min; j-- {
 			s.items = append(s.items, factor.NewSub(factor.NewInteger(i), factor.NewInteger(j)))
 		}

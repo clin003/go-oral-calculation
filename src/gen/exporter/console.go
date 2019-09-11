@@ -16,9 +16,14 @@ type console struct {
 	baseexporter
 }
 
-func (c *console) Export(t gen.FormatType, cols int) {
+func (c *console) Export(t gen.FormatType, cols int, indexed bool) {
 	for i, it := range c.items {
-		fmt.Printf("[%2d] %s\t", i+1, it.Format(t, true))
+		if indexed {
+			fmt.Printf("[%d] %s\t", i+1, it.Format(t, true))
+		} else {
+			fmt.Printf("   %s\t", it.Format(t, true))
+		}
+
 		if cols <= 1 || (i+1)%cols == 0 {
 			fmt.Print("\n")
 		}
