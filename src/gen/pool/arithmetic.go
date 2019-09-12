@@ -4,21 +4,34 @@ import (
 	"gen"
 )
 
-type OP byte
+type OpType byte
 
 const (
-	ADD OP = 1
-	SUB OP = 2
-	MUL OP = 3
-	DIV OP = 4
+	ADD OpType = 1
+	SUB OpType = 2
+	MUL OpType = 3
+	DIV OpType = 4
 )
 
-func NewArithmetic(level uint, op OP, ops ...OP) gen.IPool {
-	return &arithmetic{level: level, ops: append(ops, op)}
+func NewArithmetic(level int, op OpType, ops ...OpType) gen.IPool {
+	a := &arithmetic{level: level, ops: append(ops, op)}
+	a.init()
+
+	return a
 }
 
 type arithmetic struct {
 	basepool
-	level uint
-	ops   []OP
+	level int
+	ops   []OpType
+}
+
+func (a *arithmetic) init() {
+	if a.level <= 0 {
+		a.level = 1
+	}
+
+	for i := 0; i < (a.level + 1); i++ {
+
+	}
 }
