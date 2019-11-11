@@ -8,18 +8,25 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"time"
+	// "time"
 )
 
 func main() {
-	addition := pool.NewMix(pool.NewAddition(2, 20), pool.NewSubtraction(2, 20), pool.NewMultiplication(1, 9), pool.NewDivision(1, 20))
-	result := addition.Rand(100)
-
-	fmt.Printf("--- 共生成[%2d]道题 ---\n", len(result))
-	exp := exporter.NewConsole(result)
-	exp.Export(gen.PH_RAND, 4, false)
-
 	ext, _ := os.Executable()
-	exp = exporter.NewCsv(result, path.Join(filepath.Dir(ext), fmt.Sprintf("result_%d.csv", time.Now().Unix())))
-	exp.Export(gen.PH_RAND, 4, false)
+
+	// fmt.Printf("--- 共生成[%2d]道题 ---\n", len(result))
+	// exp := exporter.NewConsole(result)
+	// exp.Export(gen.PH_RAND, 4, false)
+
+	for i := 0; i < 10; i++ {
+		addition := pool.NewMix(pool.NewAddition(1, 10), pool.NewSubtraction(1, 10))
+		result := addition.Rand(50)
+		exp := exporter.NewCsv(result, path.Join(filepath.Dir(ext), fmt.Sprintf("result_l_%d.csv", i+1)))
+		exp.Export(gen.PH_RIGHT, 2, false)
+
+		addition = pool.NewMix(pool.NewAddition(1, 10), pool.NewSubtraction(1, 10))
+		result = addition.Rand(50)
+		exp = exporter.NewCsv(result, path.Join(filepath.Dir(ext), fmt.Sprintf("result_r_%d.csv", i+1)))
+		exp.Export(gen.PH_RANDL, 2, false)
+	}
 }

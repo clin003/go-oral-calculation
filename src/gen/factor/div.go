@@ -21,10 +21,7 @@ func (f *div) Result() int {
 func (f *div) Format(t gen.FormatType, withResult bool) string {
 	formula := ""
 
-	if t == gen.PH_RAND {
-		t = gen.RandFormat()
-	}
-
+	t = gen.DecideFormat(t)
 	if t == gen.PH_LEFT {
 		if Poss(0.5) {
 			formula += fmt.Sprintf("%s ÷ %s", f.a.Format(t, false), f.b.Format(gen.PH_NONE, false))
