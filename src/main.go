@@ -41,9 +41,9 @@ func printFun() {
 	fmt.Println("0 无留空")
 	fmt.Println("1 左侧留空")
 	fmt.Println("2 右侧留空")
-	fmt.Println("3 随机留空")
-	fmt.Println("4 随机留空")
-	fmt.Println("5 随机留空")
+	fmt.Println("3 随机留空(左5:右5)")
+	fmt.Println("4 随机留空(左8:右2)")
+	fmt.Println("5 随机留空(左2:右8)")
 	fmt.Println("请输入生成格式:")
 }
 
