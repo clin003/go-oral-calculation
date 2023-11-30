@@ -1,7 +1,7 @@
 package exporter
 
 import (
-	"gen"
+	"github.com/clin003/kousuan/gen"
 )
 
 type baseexporter struct {

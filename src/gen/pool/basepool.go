@@ -1,9 +1,10 @@
 package pool
 
 import (
-	"gen"
 	"math/rand"
 	"time"
+
+	"github.com/clin003/kousuan/gen"
 )
 
 type basepool struct {
@@ -11,7 +12,8 @@ type basepool struct {
 }
 
 func (b *basepool) Rand(num int) []gen.IFactor {
-	rand.Seed(time.Now().UnixNano())
+	// rand.Seed(time.Now().UnixNano())
+	rand.New(rand.NewSource(time.Now().UnixNano()))
 	result := make([]gen.IFactor, 0)
 	p := b.items[:]
 	for i := 0; i < num; i++ {

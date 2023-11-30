@@ -2,7 +2,8 @@ package exporter
 
 import (
 	"fmt"
-	"gen"
+
+	"github.com/clin003/kousuan/gen"
 )
 
 func NewConsole(items []gen.IFactor) gen.IExporter {

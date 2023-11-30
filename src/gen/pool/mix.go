@@ -1,7 +1,7 @@
 package pool
 
 import (
-	"gen"
+	"github.com/clin003/kousuan/gen"
 )
 
 func NewMix(pools ...gen.IPool) gen.IPool {

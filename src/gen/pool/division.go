@@ -1,8 +1,8 @@
 package pool
 
 import (
-	"gen"
-	"gen/factor"
+	"github.com/clin003/kousuan/gen"
+	"github.com/clin003/kousuan/gen/factor"
 )
 
 func NewDivision(min int, max int) gen.IPool {

@@ -2,7 +2,8 @@ package factor
 
 import (
 	"fmt"
-	"gen"
+
+	"github.com/clin003/kousuan/gen"
 )
 
 func NewAdd(a gen.IFactor, b gen.IFactor) gen.IFactor {

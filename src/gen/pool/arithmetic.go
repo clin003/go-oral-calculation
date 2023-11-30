@@ -1,7 +1,7 @@
 package pool
 
 import (
-	"gen"
+	"github.com/clin003/kousuan/gen"
 )
 
 type OpType byte
