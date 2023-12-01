@@ -95,7 +95,7 @@ func (c *excel) Export(t gen.FormatType, cols int, indexed bool) {
 			cellIndex = cellIndex + 1
 			asciiIndex = 1
 			rowIndex = rowIndex + 1
-			if err := f.SetRowHeight("Sheet1", rowIndex, 20); err != nil {
+			if err := f.SetRowHeight("Sheet1", rowIndex, 28); err != nil {
 				fmt.Println(err)
 			}
 		} else {
