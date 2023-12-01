@@ -44,9 +44,9 @@ func (c *text) Export(t gen.FormatType, cols int, indexed bool) {
 			// f.WriteString(fmt.Sprintf("\n"))
 		} else {
 			if indexed {
-				f.WriteString(fmt.Sprintf("[%d]%s\t\t", i+1, it.Format(t, true)))
+				f.WriteString(fmt.Sprintf("[%d]%s\t", i+1, it.Format(t, true)))
 			} else {
-				f.WriteString(fmt.Sprintf("%s\t\t", it.Format(t, true)))
+				f.WriteString(fmt.Sprintf("%s\t", it.Format(t, true)))
 			}
 		}
 	}
